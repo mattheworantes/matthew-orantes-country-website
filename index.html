@@ -8,18 +8,90 @@
 </head>
 <body>
 
-    <div class="video-container">
+    <div class="video-container video-background">
         <video autoplay muted loop playsinline>
-            <source src="media/usa-background-video.mp4" type="video/mp4">    
+            <source src="media/3010793-hd_1920_1080_24fps.mp4" type="video/mp4">    
         </video>
     </div>
 
-    <main>
+    <header class="site-header">
+        <div class="header-container">
+   
 
     <h1>United States of America</h1>
+
+    <nav class="navigation-links nav-menu">
+
+        <a href="#">
+<img src="logo.png"
+alt="Food"
+class="header-button">
+/>
+</a>
+
+
+        <a href="#">
+<img src="logo.png"
+alt="Gallery"
+class="header-button">
+/>
+</a>
+
+
+
+
+
+<a href="#">
+<img src="logo.png"
+alt="Credits"
+class="header-button">
+/>
+</a>
+
+</nav>
+
+<button class="menu-toggle" aria-label="Toggle navigation menu">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+</div>
+</header>
+
+
+
+
+<div class="video-container video-header">
+    <video autoplay muted loop playsinline>
+    <source src="media/202312-917730518_tiny.mp4" type="video/mp4">
+</video>
+</div>
+
+<main>
+<section class ='content-box'>
+    
+    <p>Welcome to the United States of America!</p>
+    
+    
+</section>
+
 
 
 
     </main>
+    <script>
+const menuToggle =document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+
+menuToggle.addEventListener('click', () => {
+navMenu.classList.toggle('active');
+menuToggle.ClassList.toggle('active');
+});
+
+
+
+</script>
+
 </body>
 </html>
