@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United States of America</title>
    
+    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+<link rel="shortcut icon" href="images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="images/favicon/site.webmanifest" />
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
@@ -13,6 +21,7 @@
    
    
     <link rel="stylesheet" href="styles/matthew-orantes-country-page.css">
+    <link rel="stylesheet" href="styles/food.css">
 </head>
 <body>
 
@@ -89,18 +98,33 @@ class="header-button">
     
     <h2>Food</h2>
 
-    <p>Welcome to the United States of America!</p>
     <div class ="photo-grid">
-        <img src="#" alt="Description of photo 1">
-     <img src="#" alt="Description of photo 2">
-     <img src="#" alt="Description of photo 3">
-     <img src="#" alt="Description of photo 4">
-     <img src="#" alt="Description of photo 5">
-     <img src="#" alt="Description of photo 6">
+        <button class="photo-button" type="button">
+            <img src="images/kampfmonchichi-hamburger-8329939_1280.jpg" alt="Traditional All-American Hamburger">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/denithy-pizza-5501065_1280.jpg" alt="Pizza">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/maxmann-hot-dog-2707798_1280.jpg" alt="Traditional Fourth of July Hot Dog">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/pexels-burgers-1839090_1280.jpg" alt="Barbeque Grill on a Fourth of July Weekend">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/tarheelgarden-nachos-4454941_1280.jpg" alt="Tex Mex">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/congerdesign-pie-5601656_1280.jpg" alt="Traditional American Apple Pie">
+        </button>
     </div>
     
 </section>
 
+<dialog class="photo-viewer" aria-label="Photo viewer">
+    <button class="photo-viewer-close" type="button" aria-label="Close photo">Close</button>
+    <img class="photo-viewer-image" alt="">
+</dialog>
 
 
 
@@ -108,14 +132,33 @@ class="header-button">
     <script>
 const menuToggle =document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const photoViewer = document.querySelector('.photo-viewer');
+const photoViewerImage = document.querySelector('.photo-viewer-image');
 
 
 menuToggle.addEventListener('click', () => {
 navMenu.classList.toggle('active');
-menuToggle.ClassList.toggle('active');
+menuToggle.classList.toggle('active');
 });
 
+document.querySelectorAll('.photo-button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const image = button.querySelector('img');
+        photoViewerImage.src = image.src;
+        photoViewerImage.alt = image.alt;
+        photoViewer.showModal();
+    });
+});
 
+document.querySelector('.photo-viewer-close').addEventListener('click', () => {
+    photoViewer.close();
+});
+
+photoViewer.addEventListener('click', (event) => {
+    if (event.target === photoViewer) {
+        photoViewer.close();
+    }
+});
 
 </script>
 

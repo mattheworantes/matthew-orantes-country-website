@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United States of America</title>
    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+<link rel="shortcut icon" href="images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="images/favicon/site.webmanifest" />
+
+
+
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
    
    
    
-   
-    <link rel="stylesheet" href="styles/matthew-orantes-country-page.css">
+<link rel="stylesheet" href="styles/gallery.css">
+<link rel="stylesheet" href="styles/matthew-orantes-country-page.css">
 </head>
 <body>
 
@@ -89,20 +98,36 @@ class="header-button">
     
         <h2>Gallery</h2>
 
-    <p>Welcome to the United States of America!</p>
     
-<div class ="photo-grid">
-        <img src="#" alt="Description of photo 1">
-     <img src="#" alt="Description of photo 2">
-     <img src="#" alt="Description of photo 3">
-     <img src="#" alt="Description of photo 4">
-     <img src="#" alt="Description of photo 5">
-     <img src="#" alt="Description of photo 6">
+<div class="photo-grid">
+        <button class="photo-button" type="button">
+            <img src="images/12019-brooklyn-bridge-1791001_1280.jpg" alt="Brooklyn Bridge">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/janzen_5050_creations-hollywood-5003661_1280.jpg" alt="Hollywood Sign">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/usa-reiseblogger-usa-1646934_1280.jpg" alt="Remember that day at the Alamo">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/michelle-maria-florida-landscape-3753092_1280.jpg" alt="Floridian Landscape">
+        </button>
+        <button class="photo-button" type="button">
+            <img src="images/rpnickson-la-4414887_1280.jpg" alt="Los Angeles Skyline">
+        </button>
+     <button class="photo-button" type="button">
+            <img src="images/markthomas-us-capitol-building-2225764_1280.jpg" alt="Capitol Building">
+        </button>
+   
     </div>
 
     
 </section>
 
+<dialog class="photo-viewer" aria-label="Photo viewer">
+    <button class="photo-viewer-close" type="button" aria-label="Close photo">Close</button>
+    <img class="photo-viewer-image" alt="">
+</dialog>
 
 
 
@@ -110,11 +135,32 @@ class="header-button">
     <script>
 const menuToggle =document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const photoViewer = document.querySelector('.photo-viewer');
+const photoViewerImage = document.querySelector('.photo-viewer-image');
 
 
 menuToggle.addEventListener('click', () => {
 navMenu.classList.toggle('active');
-menuToggle.ClassList.toggle('active');
+menuToggle.classList.toggle('active');
+});
+
+document.querySelectorAll('.photo-button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const image = button.querySelector('img');
+        photoViewerImage.src = image.src;
+        photoViewerImage.alt = image.alt;
+        photoViewer.showModal();
+    });
+});
+
+document.querySelector('.photo-viewer-close').addEventListener('click', () => {
+    photoViewer.close();
+});
+
+photoViewer.addEventListener('click', (event) => {
+    if (event.target === photoViewer) {
+        photoViewer.close();
+    }
 });
 
 
